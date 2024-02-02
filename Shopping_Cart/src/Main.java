@@ -10,7 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
-        Customer customer1 = new Customer("customer1", "1111", "001", "test@mail.ru");
+        Customer customer1 = new Customer("customer4", "1111", "001", "test@mail.ru");
         Customer customer2 = new Customer("customer2", "2222", "002", "test1@astanait.edu.kz");
         Customer customer3 = new Customer("customer3", "3333", "003", "test2@gmail.com");
 
