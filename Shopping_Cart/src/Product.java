@@ -48,13 +48,19 @@ abstract class Product {
 
 abstract class Device extends Product {
     private final double screenSize;
-    public Device (String productName, double price, int quantity, double screenSize) {
+    private String os;
+    public Device (String productName, double price, int quantity, double screenSize, String os) {
         super(productName, price, quantity);
         this.screenSize = screenSize;
+        this.os = os;
     }
 
     public double getScreenSize(){
         return screenSize;
+    }
+
+    public String getOs(){
+        return os;
     }
 
     public void turnOn() {
@@ -79,12 +85,13 @@ abstract class Domestic extends Product {
     }
 }
 
+
 class Phone extends Device {
     private final String brand;
     private final String model;
     private final String os;
     public Phone (String productName, double price, int quantity, double screenSize, String brand, String model, String os) {
-        super(productName, price, quantity, screenSize);
+        super(productName, price, quantity, screenSize, os);
         this.brand = brand;
         this.model = model;
         this.os = os;
@@ -128,5 +135,7 @@ class Dryer extends Domestic {
         System.out.println("Dryer is making noise");
     }
 }
+
+
 
 

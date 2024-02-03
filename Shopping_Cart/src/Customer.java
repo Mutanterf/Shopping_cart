@@ -5,12 +5,12 @@ import java.util.List;
 abstract class User {
     private String username;
     private String password;
-    private String userId;
+    private int userId;
     private String email;
     final ShoppingCart cart;
 
 
-    public User(String username, String password, String userId, String email) {
+    public User(String username, String password, int userId, String email) {
         this.userId = userId;
         this.username = username;
         this.password = password;
@@ -21,11 +21,11 @@ abstract class User {
     public abstract void displayInfo();
 
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setCustomerId(String userId) {
+    public void setCustomerId(int userId) {
         this.userId = userId;
     }
     public String getUsername() {
@@ -51,10 +51,12 @@ abstract class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void buyProduct() {}
 }
 
 class Customer extends User {
-    public Customer(String username, String password, String userId, String email) {
+    public Customer(String username, String password, int userId, String email) {
         super(username, password, userId, email);
     }
 
@@ -72,14 +74,20 @@ class Customer extends User {
         cart.displayCart();
     }
 
+    public void buyProduct() {
+
+    }
 }
 
 class Staff extends User {
     private String department;
 
-    public Staff(String username, String password, String department, String userId, String email) {
+    private final double discount;
+
+    public Staff(String username, String password, String department, int userId, String email, double discount) {
         super(username, password, userId, email);
         this.department = department;
+        this.discount = discount;
     }
 
     @Override
@@ -93,6 +101,9 @@ class Staff extends User {
         return department;
     }
 
+    public double getDiscount() {
+        return discount;
+    }
     public void setDepartment(String department) {
         this.department = department;
     }
